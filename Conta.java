@@ -1,0 +1,40 @@
+public abstract class Conta {
+    private Cliente titular;
+    private int numero;
+    protected double saldo;
+    public Conta (int numero, Cliente titular, double saldo) {
+        this.numero = numero;
+        this.titular = titular;
+        this.saldo = saldo;
+    }
+    public Conta(int numero, Cliente titular) {
+        this.numero = numero;
+        this.titular = titular;
+        saldo = 0;
+    }
+    public Conta(int numero, String nomeTitular, String cpfTitular) {
+        this.numero = numero;
+        this.titular = new Cliente(nomeTitular, cpfTitular);
+        saldo = 0;
+    }
+    void depositar (double valor) {
+        this.saldo = this.saldo + valor;
+    }
+    public abstract boolean sacar (double valor);
+
+    public Cliente getTitular() {
+        return titular;
+    }
+    public int getNumero() {
+        return numero;
+    }
+    public double getSaldo() {
+        return saldo;
+    }
+    public void setTitular(Cliente titular) {
+        this.titular = titular;
+    }
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+}
